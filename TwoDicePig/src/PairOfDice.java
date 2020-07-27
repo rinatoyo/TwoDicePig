@@ -1,11 +1,11 @@
 import java.util.Random;
 
 public class PairOfDice {
-private int die1, die2;
-	
+	private int die1, die2;
+
 	public void roll() {
-		Random rand = new Random(); //random class
-		//roll the dice
+		Random rand = new Random(); // random class
+		// roll the dice
 		die1 = rand.nextInt(6) + 1;
 		die2 = rand.nextInt(6) + 1;
 	}
