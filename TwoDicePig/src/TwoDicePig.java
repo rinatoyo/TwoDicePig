@@ -68,24 +68,23 @@ public class TwoDicePig {
 				System.out.println("First die value: " + die1);
 				System.out.println("Second die value: " + die2);
 
+				// If two 1s are rolled, the player’s entire score is lost, and the turn ends.
 				if (die1 == 1 && die2 == 1) {
-					// If two 1s are rolled, the player’s entire score is lost, and the turn ends.
 					totalScore = 0;
-					players[idx].setScore(totalScore);
 					System.out.println("Shucks, you lost all of your points. Score: " + totalScore + " " + endTurnMsg);
-					return totalScore;
-				} else if (die1 == 1 || die2 == 1) {
-					// If a single 1 is rolled, the player scores nothing and the turn ends.
+					return 0;
+				}
+				// If a single 1 is rolled, the player scores nothing and the turn ends.
+				if (die1 == 1 || die2 == 1) {
 					System.out.println("Sorry, you scored nothing! Your total score is: " + totalScore);
 					System.out.println(endTurnMsg);
 					return totalScore;
 				}
+				// If a double is rolled, the point total is added to the turn total as with any
+				// roll but the player is obligated to roll again.
 				if (die1 == die2) {
-					// If a double is rolled, the point total is added to the turn total as with any
-					// roll but the player is obligated to roll again.
 					roundScore = die1 + die2;
 					totalScore += roundScore;
-					players[idx].setScore(totalScore);
 					System.out.println("This round's score: " + roundScore);
 					System.out.println("Total Score: " + totalScore);
 					System.out.println("Double! Now roll again.");
@@ -95,20 +94,21 @@ public class TwoDicePig {
 					// player’s turn continues.
 					roundScore = die1 + die2;
 					totalScore += roundScore;
-					players[idx].setScore(totalScore);
 					System.out.println("This round's score: " + roundScore);
 					System.out.println("Total Score: " + totalScore);
 					rollAgain = false;
 				}
-			} // end if choice 1
+			} else if (choice == 2) {
 				// If a player chooses to “hold”, their turn total is added to their score, and
 				// it becomes the next player’s turn.
-			if (choice == 2) {
 				System.out.println(endTurnMsg);
 				return totalScore;
+			} else {
+				System.out.println("You entered an invalid number. :( Please try again." );
+				rollAgain = false;
 			}
 			// The first player to 100 or more points wins.
-		} while (players[idx].getScore() < 100);
+		} while (totalScore < 100);
 
 		return totalScore;
 
