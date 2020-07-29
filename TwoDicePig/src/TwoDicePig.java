@@ -70,7 +70,6 @@ public class TwoDicePig {
 
 				// If two 1s are rolled, the player’s entire score is lost, and the turn ends.
 				if (die1 == 1 && die2 == 1) {
-					totalScore = 0;
 					System.out.println("Shucks, you lost all of your points. Score: " + totalScore + " " + endTurnMsg);
 					return 0;
 				}
@@ -96,7 +95,6 @@ public class TwoDicePig {
 					totalScore += roundScore;
 					System.out.println("This round's score: " + roundScore);
 					System.out.println("Total Score: " + totalScore);
-					rollAgain = false;
 				}
 			} else if (choice == 2) {
 				// If a player chooses to “hold”, their turn total is added to their score, and
@@ -105,7 +103,6 @@ public class TwoDicePig {
 				return totalScore;
 			} else {
 				System.out.println("You entered an invalid number. :( Please try again." );
-				rollAgain = false;
 			}
 			// The first player to 100 or more points wins.
 		} while (totalScore < 100);
