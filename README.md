@@ -5,7 +5,7 @@ Make sure you have Java and eclipse installed to run this program.
 
 Instructions:
 
-1) Fork and clone this repository into eclipse.
+1) Clone this repository into eclipse.
 2) Run the program.
 3) Enter the number of players into the console when prompted.
 4) Enter 1 to roll the dice and 2 to hold and move on to the next player.
